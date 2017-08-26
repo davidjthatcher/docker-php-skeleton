@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  webserver:
+    build: ./docker/webserver
+    image: simple_web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /home/david/sw/fff-skeleton:/var/www
+    links:
+      - db:mysql
+
+  db:
+    image: mysql:5.7
+    ports: 
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+      - /home/david/sw/fff-skeleton/local/app/db:/var/local/db
+    environment:
+      - MYSQL_ROOT_PASSWORD=docker
+      - MYSQL_DATABASE=skeleton
+      - MYSQL_USER=david
+      - MYSQL_PASSWORD=r1d3r@shannonDale
