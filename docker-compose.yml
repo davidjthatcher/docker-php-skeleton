@@ -2,7 +2,7 @@ version: '2'
 
 services:
   webserver:
-    build: ./docker/webserver
+    build: ./webserver
     image: simple_web
     ports:
       - "80:80"
