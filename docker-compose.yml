@@ -8,7 +8,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - /home/david/sw/fff-skeleton:/var/www
+      - /var/www/fff-skeleton:/var/www
     links:
       - db:mysql
 
@@ -18,9 +18,9 @@ services:
       - "3306:3306"
     volumes:
       - ./db:/var/lib/mysql
-      - /home/david/sw/fff-skeleton/local/app/db:/var/local/db
+      - /var/www/fff-skeleton/local/app/db:/var/local/db
     environment:
       - MYSQL_ROOT_PASSWORD=docker
       - MYSQL_DATABASE=skeleton
       - MYSQL_USER=david
-      - MYSQL_PASSWORD=r1d3r@shannonDale
+      - MYSQL_PASSWORD=myPassword
